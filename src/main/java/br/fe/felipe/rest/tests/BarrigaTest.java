@@ -67,4 +67,18 @@ public class BarrigaTest extends BaseTest {
         ;
 
     }
+
+    @Test
+    public void naoDeveIncluirContaComNomeRepetido(){
+        given()
+                .header("Authorization", "JWT " + TOKEN)
+                .body("{\"nome\": \"conta qualquer3\"}")
+        .when()
+                .post("/contas")
+        .then()
+                .statusCode(400)
+                .body("error", is("Já existe uma conta com esse nome!"))
+        ;
+
+    }
 }
