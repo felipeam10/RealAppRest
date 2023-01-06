@@ -2,6 +2,7 @@ package br.fe.felipe.rest.tests;
 
 import br.fe.felipe.rest.core.BaseTest;
 import static org.hamcrest.Matchers.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -78,6 +79,30 @@ public class BarrigaTest extends BaseTest {
         .then()
                 .statusCode(400)
                 .body("error", is("Já existe uma conta com esse nome!"))
+        ;
+
+    }
+
+    @Test
+    public void deveIncluirMovimentacaoComSucesso(){
+        Movimentacao mov = new Movimentacao();
+        mov.setConta_id(1541376);
+//        mov.setId_usuario(id_usuario);
+        mov.setDescricao("Movimentacao teste");
+        mov.setEnvolvido("Interessado");
+        mov.setTipo("REC");
+        mov.setData_transacao("01/01/2020");
+        mov.setData_pagamento("10/05/2010");
+        mov.setValor(100f);
+        mov.setStatus(true);
+
+        given()
+                .header("Authorization", "JWT " + TOKEN)
+                .body(mov)
+        .when()
+                .post("/transacoes")
+        .then()
+                .statusCode(201)
         ;
 
     }
