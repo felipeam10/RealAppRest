@@ -85,16 +85,7 @@ public class BarrigaTest extends BaseTest {
 
     @Test
     public void deveIncluirMovimentacaoComSucesso(){
-        Movimentacao mov = new Movimentacao();
-        mov.setConta_id(1541376);
-//        mov.setId_usuario(id_usuario);
-        mov.setDescricao("Movimentacao teste");
-        mov.setEnvolvido("Interessado");
-        mov.setTipo("REC");
-        mov.setData_transacao("01/01/2020");
-        mov.setData_pagamento("10/05/2010");
-        mov.setValor(100f);
-        mov.setStatus(true);
+        Movimentacao mov = getMovimentacaoValida();
 
         given()
                 .header("Authorization", "JWT " + TOKEN)
@@ -129,5 +120,37 @@ public class BarrigaTest extends BaseTest {
                 ))
         ;
 
+    }
+
+    @Test
+    public void naoDeveIncluirMovimentacaoComDataFutura(){
+        Movimentacao mov = getMovimentacaoValida();
+        mov.setData_transacao("07/01/2023");
+
+        given()
+                .header("Authorization", "JWT " + TOKEN)
+                .body(mov)
+        .when()
+                .post("/transacoes")
+        .then()
+                .statusCode(400)
+                .body("$", hasSize(1))
+                .body("msg", hasItem("Data da Movimentação deve ser menor ou igual à data atual"))
+        ;
+
+    }
+
+    private Movimentacao getMovimentacaoValida(){
+        Movimentacao mov = new Movimentacao();
+        mov.setConta_id(1541376);
+//        mov.setId_usuario(id_usuario);
+        mov.setDescricao("Movimentacao teste");
+        mov.setEnvolvido("Interessado");
+        mov.setTipo("REC");
+        mov.setData_transacao("01/01/2020");
+        mov.setData_pagamento("10/05/2010");
+        mov.setValor(100f);
+        mov.setStatus(true);
+        return mov;
     }
 }
