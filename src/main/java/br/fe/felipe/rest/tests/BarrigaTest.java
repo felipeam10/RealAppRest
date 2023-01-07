@@ -153,6 +153,19 @@ public class BarrigaTest extends BaseTest {
 
     }
 
+    @Test
+    public void deveCalcularSaldoContas(){
+        given()
+                .header("Authorization", "JWT " + TOKEN)
+        .when()
+                .get("/saldo")
+        .then()
+                .statusCode(200)
+                .body("find{it.conta_id == 1546201}.saldo", is("-1500.00"))
+        ;
+
+    }
+
     private Movimentacao getMovimentacaoValida(){
         Movimentacao mov = new Movimentacao();
         mov.setConta_id(1541376);
