@@ -121,6 +121,7 @@ public class MovimentacaoTest extends BaseTest {
     public Integer getIdContaPeloNome(String nome){
         return RestAssured.get("/contas?nome" + nome).then().extract().path("id[0]");
     }
+
     public Integer getIdMovPelaDescricao(String desc){
         return RestAssured.get("/transacoes?descricao" + desc).then().extract().path("id[0]");
     }
