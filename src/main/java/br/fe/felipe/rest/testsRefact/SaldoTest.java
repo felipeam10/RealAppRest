@@ -23,9 +23,9 @@ public class SaldoTest extends BaseTest {
 
         String TOKEN = given()
                 .body(login)
-                .when()
+        .when()
                 .post("/signin")
-                .then()
+        .then()
                 .statusCode(200)
                 .extract().path("token")
                 ;
@@ -37,8 +37,8 @@ public class SaldoTest extends BaseTest {
 
     @Test
     public void deveCalcularSaldoContas(){
-        Integer CONTA_ID = getIdContaPeloNome("Conta para alterar");
-        System.out.println(CONTA_ID);
+        Integer CONTA_ID = getIdContaPeloNome("Conta para saldo");
+
         given()
         .when()
                 .get("/saldo")
@@ -50,7 +50,7 @@ public class SaldoTest extends BaseTest {
     }
 
     public Integer getIdContaPeloNome(String nome){
-        return RestAssured.get("/contas?nome" + nome).then().extract().path("id[0]");
+        return RestAssured.get("/contas?nome=" + nome).then().extract().path("id[0]");
     }
 
 
