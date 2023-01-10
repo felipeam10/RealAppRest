@@ -11,12 +11,12 @@ As seções anteriores se encontram no repositório  https://github.com/felipeam
 
 ## Links utilizados:
 
-https://restapi.wcaquino.me/v2/users
-https://www.red-gate.com/simple-talk/development/dotnet-development/xpath-css-dom-and-selenium-the-rosetta-stone/
-https://restapi.wcaquino.me/usersXML
-https://restapi.wcaquino.me/users
-https://swapi.dev/
-https://restapi.wcaquino.me/basicauth
-https://seubarriga.wcaquino.me/login
+* https://restapi.wcaquino.me/v2/users
+* https://www.red-gate.com/simple-talk/development/dotnet-development/xpath-css-dom-and-selenium-the-rosetta-stone/
+* https://restapi.wcaquino.me/usersXML
+* https://restapi.wcaquino.me/users
+* https://swapi.dev/
+* https://restapi.wcaquino.me/basicauth
+* https://seubarriga.wcaquino.me/login
 
 Obs: PDZ ZUP
