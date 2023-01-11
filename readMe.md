@@ -2,7 +2,7 @@
 
 Link do curso: https://www.udemy.com/course/testando-api-rest-com-rest-assured/learn/lecture/14449012#questions
 
-Cada aula foi replicada em branches a fim de separar os conteúdos.
+Cada aula foi replicada em branches a fim de separar os conteúdos  "commitados".
 
 Exemplo: <br />
 Seção 12: Testando uma aplicação real <br />
