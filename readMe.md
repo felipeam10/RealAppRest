@@ -4,6 +4,11 @@ Link do curso: https://www.udemy.com/course/testando-api-rest-com-rest-assured/l
 
 Cada aula foi replicada em branches a fim de separar os conteúdos.
 
+Exemplo: 
+Seção 12: Testando uma aplicação real
+Aula 54. Não deve acessar sem token
+A branch está descrita: v12.54 não deve acessar sem token
+
 Este repositório "RealAppRest" equivale a seção 12: Testando aplicação real
 
 As seções anteriores se encontram no repositório  https://github.com/felipeam10/RestAssuredTests
